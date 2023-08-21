@@ -47,4 +47,11 @@ public class DishController {
         DishVO dishVO = dishSerice.getByIdWithFlavor(id);
         return Result.success(dishVO);
     }
+
+    @PutMapping
+    @ApiOperation("修改菜品")
+    public Result update(@RequestBody DishDTO dishDTO) {
+        dishSerice.updateWithFlavor(dishDTO);
+        return Result.success();
+    }
 }

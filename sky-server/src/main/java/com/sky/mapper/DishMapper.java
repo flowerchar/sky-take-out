@@ -32,4 +32,7 @@ public interface DishMapper {
 
     @Delete("delete from dish where id =#{id}")
     void deleteById(Long id);
+
+    @AutoFill(OperationType.UPDATE)
+    void update(Dish dish);
 }

@@ -15,4 +15,6 @@ public interface DishSerice {
     void deleteBatch(Long[] ids);
 
     DishVO getByIdWithFlavor(Long id);
+
+    void updateWithFlavor(DishDTO dishDTO);
 }
