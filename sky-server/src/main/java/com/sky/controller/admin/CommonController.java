@@ -1,6 +1,8 @@
 package com.sky.controller.admin;
 
+import com.sky.constant.MessageConstant;
 import com.sky.result.Result;
+import com.sky.service.DishSerice;
 import com.sky.utils.AliOssUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -36,6 +38,6 @@ public class CommonController {
             e.printStackTrace();
         }
 
-        return null;
+        return Result.error(MessageConstant.UPLOAD_FAILED);
     }
 }
