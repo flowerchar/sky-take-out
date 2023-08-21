@@ -10,4 +10,6 @@ public interface DishSerice {
     public void saveWithFlavor(DishDTO dishDTO);
 
     PageResult pageQuery(DishPageQueryDTO dishPageQueryDTO);
+
+    void deleteBatch(Long[] ids);
 }

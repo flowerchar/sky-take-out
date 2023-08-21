@@ -31,4 +31,12 @@ public class DishController {
         PageResult pageResult = dishSerice.pageQuery(dishPageQueryDTO);
         return Result.success(pageResult);
     }
+
+    @DeleteMapping
+    @ApiOperation("菜品批量删除")
+//    @RequestParam List<Long> ids
+    public Result delete(Long[] ids) {
+        dishSerice.deleteBatch(ids);
+        return Result.success();
+    }
 }
