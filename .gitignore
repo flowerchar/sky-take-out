@@ -3,5 +3,5 @@
 *.iml
 *.class
 *Test.java
-#**/test/
+**/test/
 docs
