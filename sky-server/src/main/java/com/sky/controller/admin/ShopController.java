@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
-// 增加了一个没用的代码来测试git 
+
 @RestController("adminShopController")
 @RequestMapping("/admin/shop")
 @Api(tags = "店铺相关接口")
