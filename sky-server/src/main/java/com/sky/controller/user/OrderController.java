@@ -20,7 +20,7 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @PostMapping
+    @PostMapping("/submit")
     @ApiOperation("用户下单")
     public Result<OrderSubmitVO> submit(@RequestBody OrdersSubmitDTO ordersSubmitDTO) {
         OrderSubmitVO orderSubmitVO = orderService.submitOrder(ordersSubmitDTO);
