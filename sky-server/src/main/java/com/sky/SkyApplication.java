@@ -13,8 +13,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableCaching
 @EnableScheduling
 public class SkyApplication {
+    static {
+//        阿里连接池报错
+        System.setProperty("druid.mysql.usePingMethod", "false");
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(SkyApplication.class, args);
         log.info("server started");
     }
+
 }
