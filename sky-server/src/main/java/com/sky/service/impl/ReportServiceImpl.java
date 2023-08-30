@@ -4,6 +4,7 @@ import com.sky.entity.Orders;
 import com.sky.mapper.OrderMapper;
 import com.sky.service.ReportService;
 import com.sky.vo.TurnoverReportVO;
+import com.sky.vo.UserReportVO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,7 +42,7 @@ public class ReportServiceImpl implements ReportService {
             map.put("end", endTime);
             map.put("status", Orders.COMPLETED);
             Double turnover = orderMapper.sumByMap(map);
-            turnover = turnover==null?0.0:turnover
+            turnover = turnover == null ? 0.0 : turnover;
             turnoverList.add(turnover);
         }
 
@@ -49,5 +50,11 @@ public class ReportServiceImpl implements ReportService {
                 .dateList(StringUtils.join(dateList, ","))
                 .turnoverList(StringUtils.join(turnoverList, ","))
                 .build();
+    }
+
+    @Override
+    public UserReportVO getUserStatistics(LocalDate begin, LocalDate end) {
+
+        return null;
     }
 }
