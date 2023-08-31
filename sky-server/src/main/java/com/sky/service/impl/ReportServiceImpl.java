@@ -65,7 +65,23 @@ public class ReportServiceImpl implements ReportService {
         }
         List<Integer> newUserList = new ArrayList<>();
         List<Integer> totalUserList = new ArrayList<>();
-        userMapper.
-        return null;
+        for (LocalDate date :
+                dateList) {
+            LocalDateTime beginTime = LocalDateTime.of(date, LocalTime.MIN);
+            LocalDateTime endTime = LocalDateTime.of(date, LocalTime.MAX);
+            Map map = new HashMap<>();
+            map.put("end", endTime);
+            Integer totalUser = userMapper.countByMap(map);
+            map.put("begin", beginTime);
+            Integer newUser = userMapper.countByMap(map);
+
+            totalUserList.add(totalUser);
+            newUserList.add(newUser);
+        }
+        return UserReportVO.builder()
+                .dateList(StringUtils.join(dateList, ","))
+                .totalUserList(StringUtils.join(totalUserList, ","))
+                .newUserList(StringUtils.join(newUserList, ","))
+                .build();
     }
 }
