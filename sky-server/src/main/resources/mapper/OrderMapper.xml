@@ -111,6 +111,7 @@
         select od.name, sum(od.number) number
         from order_detail od,orders o
         where od.order_id = o.id and o.status = 5
+        # 前端一定会传过来，其实不用动态
         <if test="begin != null">
             and o.order_time &gt; #{begin}
         </if>
