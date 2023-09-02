@@ -163,6 +163,19 @@ public class ReportServiceImpl implements ReportService {
             row.getCell(4).setCellValue(businessDataVO.getOrderCompletionRate());
             row.getCell(6).setCellValue(businessDataVO.getNewUsers());
 
+            for (int i = 0; i < 30; i++) {
+                LocalDate date = dateBegin.plusDays(i);
+                BusinessDataVO businessData = workspaceService.getBusinessData(LocalDateTime.of(date, LocalTime.MIN), LocalDateTime.of(date, LocalTime.MAX));
+                row = sheet.getRow(7 + i);
+                row.getCell(1).setCellValue(date.toString());
+                row.getCell(2).setCellValue(businessData.getTurnover());
+                row.getCell(3).setCellValue(businessData.getValidOrderCount());
+                row.getCell(4).setCellValue(businessData.getOrderCompletionRate());
+                row.getCell(5).setCellValue(businessData.getUnitPrice());
+                row.getCell(6).setCellValue(businessData.getNewUsers());
+            }
+
+
             ServletOutputStream out = response.getOutputStream();
             excel.write(out);
             out.close();
